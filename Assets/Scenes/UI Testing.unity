@@ -227,9 +227,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6859bee163cf854691e7482ea1ddc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatManager
-  foodStat: {fileID: 1060053420}
-  washStat: {fileID: 1060927989}
-  exerciseStat: {fileID: 808863107}
+  foodImage: {fileID: 1060053420}
+  washImage: {fileID: 1060927989}
+  exerciseImage: {fileID: 808863107}
+  foodStatMax: 20
+  washStatMax: 20
+  exerciseStatMax: 20
+  statDecreaseTimer: 1.5
 --- !u!4 &207499222
 Transform:
   m_ObjectHideFlags: 0
