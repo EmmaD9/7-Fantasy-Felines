@@ -198,6 +198,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &207499220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207499222}
+  - component: {fileID: 207499221}
+  m_Layer: 0
+  m_Name: StatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &207499221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207499220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6859bee163cf854691e7482ea1ddc27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatManager
+  foodStat: {fileID: 1060053420}
+  washStat: {fileID: 1060927989}
+  exerciseStat: {fileID: 808863107}
+--- !u!4 &207499222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207499220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 464.71686, y: 231.4957, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263111736
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,8 +465,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 749249123}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+      - m_Target: {fileID: 207499221}
+        m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: OnWashClick
         m_Mode: 1
         m_Arguments:
@@ -692,7 +739,6 @@ GameObject:
   - component: {fileID: 749249121}
   - component: {fileID: 749249120}
   - component: {fileID: 749249119}
-  - component: {fileID: 749249123}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -792,18 +838,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &749249123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749249118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de3f42ba4725d547bcea4fb4c4dbded, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonManager
 --- !u!1 &775142179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,8 +1495,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 749249123}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+      - m_Target: {fileID: 207499221}
+        m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: OnFeedClick
         m_Mode: 1
         m_Arguments:
@@ -1989,8 +2023,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 749249123}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+      - m_Target: {fileID: 207499221}
+        m_TargetAssemblyTypeName: StatManager, Assembly-CSharp
         m_MethodName: OnExerciseClick
         m_Mode: 1
         m_Arguments:
@@ -2167,3 +2201,4 @@ SceneRoots:
   - {fileID: 775142182}
   - {fileID: 749249122}
   - {fileID: 145815230}
+  - {fileID: 207499222}
