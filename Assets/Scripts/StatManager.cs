@@ -16,6 +16,12 @@ public class StatManager : MonoBehaviour
     public int washStatMax;
     public int exerciseStatMax;
 
+    public Sprite happyCat;
+    public Sprite neutralCat;
+    public Sprite sadCat;
+    public GameObject catObject;
+
+
     public float statDecreaseTimer;
     private float timeRemaining;
     private bool timerIsRunning;
