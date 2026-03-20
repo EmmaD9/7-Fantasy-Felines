@@ -62,20 +62,21 @@ public class StatManager : MonoBehaviour
                 {
                     foodStat = 0;
                 }
-                FeedUpdate();
+                UpdateStat(foodStatMax, ref foodStat, foodImage);
                 washStat--;
                 if (washStat < 0)
                 {
                     washStat = 0;
                 }
-                WashUpdate();
+                UpdateStat(washStatMax, ref washStat, washImage);
                 exerciseStat--;
                 if (exerciseStat < 0)
                 {
                     exerciseStat = 0;
                 }
-                ExerciseUpdate();
+                UpdateStat(exerciseStatMax, ref exerciseStat, exerciseImage);
                 timeRemaining = statDecreaseTimer;
+
             }
         }
     }
@@ -84,86 +85,50 @@ public class StatManager : MonoBehaviour
     public void OnFeedClick()
     {
         foodStat++;
-        FeedUpdate();
+        UpdateStat(foodStatMax, ref foodStat, foodImage);
     }
     public void OnWashClick()
     {
         washStat++;
-        WashUpdate();
+        UpdateStat(washStatMax, ref washStat, washImage);
     }
     public void OnExerciseClick()
     {
         exerciseStat++;
-        ExerciseUpdate();
+        UpdateStat(exerciseStatMax, ref exerciseStat, exerciseImage);
     }
 
-    // Methods to update stat color
-    public void FeedUpdate()
+    /// <summary>
+    /// Updates a specfic stat based on a given max and value.
+    ///
+    ///     Since the ref keyword is new to me, I am documenting how it works for my learning - Joshua
+    ///     Allows for a value type to be passed as a reference.
+    /// </summary>
+    /// <param name="maxStat"></param>
+    /// <param name="currentStat"></param>
+    /// <param name="statDisplay"></param>
+    public void UpdateStat(int maxStat, ref int currentStat, Image statDisplay)
     {
+        float statbreakPointThird = (float)maxStat / 3;
+        float statbreakPointSecondThird = (float)maxStat / 3 * 2;
         // Cap number at max for stat
-        if (foodStat > foodStatMax)
+        if (currentStat > maxStat)
         {
-            foodStat = foodStatMax;
+            currentStat = maxStat;
         }
 
         // Change color according to current stat
-        if (foodStat < 7)
+        if (currentStat < statbreakPointThird)
         {
-            foodImage.color = Color.red;
+            statDisplay.color = Color.red;
         }
-        else if (foodStat > 7 && foodStat < 15)
+        else if (currentStat > statbreakPointThird && currentStat < statbreakPointSecondThird)
         {
-            foodImage.color = Color.yellow;
+            statDisplay.color = Color.yellow;
         }
-        else if (foodStat > 15)
+        else if (currentStat > statbreakPointSecondThird)
         {
-            foodImage.color = Color.green;
-        }
-    }
-
-    public void WashUpdate()
-    {
-        // Cap number at max for stat
-        if (washStat > washStatMax)
-        {
-            washStat = washStatMax;
-        }
-
-        // Change color according to current stat
-        if (washStat < 7)
-        {
-            washImage.color = Color.red;
-        }
-        else if (washStat > 7 && washStat < 15)
-        {
-            washImage.color = Color.yellow;
-        }
-        else if (washStat > 15)
-        {
-            washImage.color = Color.green;
-        }
-    }
-
-    public void ExerciseUpdate()
-    {
-        // Cap number at max for stat
-        if (exerciseStat > exerciseStatMax)
-        {
-            exerciseStat = exerciseStatMax;
-        }
-
-        // Change color according to current stat
-        if (exerciseStat < 7)
-        {
-            exerciseImage.color = Color.red;
-        }
-        else if (exerciseStat > 7 && exerciseStat < 15)
-        {
-            exerciseImage.color = Color.yellow;
-        }
-        else if (exerciseStat > 15)
-        {
-            exerciseImage.color = Color.green;
+            statDisplay.color = Color.green;
         }
     }
 }
