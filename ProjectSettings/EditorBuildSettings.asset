@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/UI Testing.unity
+    guid: 75303562b4a8a244e96265840e498990
+  - enabled: 1
+    path: Assets/Scenes/WashGame.unity
+    guid: 0257f6d3a68897343883da97f95b9877
+  - enabled: 1
+    path: Assets/Scenes/FoodGame.unity
+    guid: 8973c4fa9e1c27241af04a815a4f981a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
