@@ -3,7 +3,6 @@ using UnityEngine;
 public class FoodManager : MonoBehaviour
 {
     private float degrees;
-    public float speed;
     public GameObject food;
 
     void Start()
@@ -17,7 +16,6 @@ public class FoodManager : MonoBehaviour
 
     void Update()
     {
-        transform.rotation = Quaternion.Euler(Vector3.forward * degrees);
-        degrees -= speed;
+        transform.rotation = Quaternion.Euler(new Vector3(0,0,Input.acceleration.x));
     }
 }
