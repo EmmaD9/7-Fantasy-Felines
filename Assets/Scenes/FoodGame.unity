@@ -518,7 +518,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7929, y: -2.9495, z: 0}
-  m_LocalScale: {x: 2.5634673, y: 0.99232054, z: 1}
+  m_LocalScale: {x: 2.5634673, y: 0.99232054, z: 10.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -720,6 +720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodManager
   food: {fileID: 8802097828275035194, guid: 5e00454c17e88cf4d90196ff031cc0a2, type: 3}
+  tiltScalar: 125
+  smoothness: 0.116
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

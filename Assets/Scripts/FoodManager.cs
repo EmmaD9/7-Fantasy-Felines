@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class FoodManager : MonoBehaviour
 {
-    private float degrees;
     public GameObject food;
+    public float tiltScalar = 1.0f;
+    private Vector3 smoothedAcc;
+
+    [Range(0.01f, 0.5f)]
+    public float smoothness;
 
     void Start()
     {
@@ -14,8 +18,12 @@ public class FoodManager : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(new Vector3(0,0,Input.acceleration.x));
+        // Lerp input acceleration to smooth
+        smoothedAcc = Vector3.Lerp(smoothedAcc, new Vector3(0, 0, Input.acceleration.x), smoothness);
+
+        // Apply the smoothed acceleration to the rotation
+        transform.rotation = Quaternion.Euler(-smoothedAcc * tiltScalar);
     }
 }
