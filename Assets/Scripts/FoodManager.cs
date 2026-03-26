@@ -3,6 +3,7 @@ using UnityEngine;
 public class FoodManager : MonoBehaviour
 {
     public GameObject food;
+    public int numFood = 50;
     public float tiltScalar = 1.0f;
     private Vector3 smoothedAcc;
 
@@ -11,7 +12,7 @@ public class FoodManager : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < numFood; i++)
         {
             Instantiate(food, new Vector3(transform.position.x, transform.position.y+.75f, 10), Quaternion.identity);
         }
