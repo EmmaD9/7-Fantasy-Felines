@@ -3,7 +3,7 @@ using UnityEngine;
 public class FoodManager : MonoBehaviour
 {
     public GameObject food;
-    public int numFood = 50;
+    public static int numFood = 50;
     public float tiltScalar = 1.0f;
     private Vector3 smoothedAcc;
 
