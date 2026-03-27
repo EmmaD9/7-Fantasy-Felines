@@ -10,6 +10,7 @@ public class GameLoader : MonoBehaviour
 
     public void LoadWash()
     {
+        StatManager.washStat++;
         SceneManager.LoadScene("WashGame");
     }
 
