@@ -11,10 +11,13 @@ public class FoodScoreTracker : MonoBehaviour
     public TextMeshProUGUI counter;
     public TextMeshProUGUI title;
 
-    private bool checking = true;
+    private bool win = false;
 
     private float winTimer = 0f;
     private float winTime = 3.0f;
+
+    private float lossTimer = 0f;
+    private float lossTime = 3.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,21 +28,44 @@ public class FoodScoreTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(checking)
+        if(win)
         {
-            if(foodCount >= foodGoal)
+            winTimer += Time.deltaTime;
+            if (winTimer >= winTime)
             {
-                checking = false;
-                title.text = "Great Job!";
+                StatManager.foodStat++;
+                SceneManager.LoadScene("UI Testing");
             }
         }
         else
         {
-            winTimer += Time.deltaTime;
-            if(winTimer >= winTime)
+            if (!FoodManager.isEmpty)
             {
-                StatManager.foodStat++;
-                SceneManager.LoadScene("UI Testing");
+                if (foodCount >= foodGoal)
+                {
+                    win = true;
+                    title.text = "Great Job!";
+                }
+            }
+            else
+            {
+                if (foodCount <= foodGoal)
+                {
+                    lossTimer += Time.deltaTime;
+                    if (lossTimer >= lossTime)
+                    {
+                        title.text = "Try Again!";
+                    }
+                    if (lossTimer >= lossTime + 2.0f)
+                    {
+                        SceneManager.LoadScene("UI Testing");
+                    }
+                }
+                else
+                {
+                    win = true;
+                    title.text = "Great Job!";
+                }
             }
         }
     }

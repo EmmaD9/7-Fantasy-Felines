@@ -4,8 +4,10 @@ public class FoodManager : MonoBehaviour
 {
     public GameObject food;
     public static int numFood = 50;
+    public static bool isEmpty;
     public float tiltScalar = 1.0f;
     private Vector3 smoothedAcc;
+    private int foodLeft;
 
     [Range(0.01f, 0.5f)]
     public float smoothness;
@@ -16,6 +18,17 @@ public class FoodManager : MonoBehaviour
         {
             Instantiate(food, new Vector3(transform.position.x, transform.position.y+.75f, 10), Quaternion.identity);
         }
+        foodLeft = numFood;
+        isEmpty = false;
+    }
+
+    private void Update()
+    {
+        if(foodLeft <= 0)
+        {
+            isEmpty = true;
+        }
+        Debug.Log(foodLeft);
     }
 
 
@@ -26,5 +39,10 @@ public class FoodManager : MonoBehaviour
 
         // Apply the smoothed acceleration to the rotation
         transform.rotation = Quaternion.Euler(-smoothedAcc * tiltScalar);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        foodLeft--;
     }
 }
