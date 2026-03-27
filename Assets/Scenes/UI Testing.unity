@@ -230,14 +230,14 @@ MonoBehaviour:
   foodImage: {fileID: 1060053420}
   washImage: {fileID: 1060927989}
   exerciseImage: {fileID: 808863107}
-  foodStatMax: 20
-  washStatMax: 20
-  exerciseStatMax: 20
+  foodStatMax: 8
+  washStatMax: 8
+  exerciseStatMax: 8
   happyCat: {fileID: 21300000, guid: f3d3eacb5e0db734a890cdae1343ef88, type: 3}
   neutralCat: {fileID: 21300000, guid: 6a61b357c8c19914fb5c32ee81e57081, type: 3}
   sadCat: {fileID: 21300000, guid: d4a04d6d6e2c5434980cfe6c3d7bd940, type: 3}
   catObject: {fileID: 950378370}
-  statDecreaseTimer: 1.5
+  statDecreaseTimer: 5
 --- !u!4 &207499222
 Transform:
   m_ObjectHideFlags: 0

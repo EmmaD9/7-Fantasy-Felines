@@ -58,6 +58,9 @@ public class StatManager : MonoBehaviour
 
         timeRemaining = statDecreaseTimer;
         timerIsRunning = true;
+        OnFeedClick();
+        OnExerciseClick();
+        OnWashClick();
         UpdateCat();
     }
 
@@ -103,12 +106,11 @@ public class StatManager : MonoBehaviour
     // Public methods to link with buttons
     public void OnFeedClick()
     {
-        foodStat++;
         UpdateStat(foodStatMax, ref foodStat, foodImage, ref foodState);
     }
     public void OnWashClick()
     {
-        washStat++;
+        //washStat++;
         UpdateStat(washStatMax, ref washStat, washImage, ref washState);
     }
     public void OnExerciseClick()
