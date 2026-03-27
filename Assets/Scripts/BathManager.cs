@@ -7,20 +7,24 @@ public class CatWashMinigame : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform sponge;
     [SerializeField] private Collider2D catCollider;
+    [SerializeField] private ParticleSystem bubbleFX;
+    [SerializeField] private DirtySpot[] dirtySpots;
 
     [Header("Cleaning Settings")]
-
-    //can change for difficulty
     [SerializeField] private float cleanRequired = 5f;
-
-    //the rate of change of cleaning
-    [SerializeField] private float cleanRate = 1f;    
+    [SerializeField] private float cleanRate = 1f;
 
     [Header("Events")]
     public UnityEvent onWin;
 
     private bool holdingSponge = false;
     private float cleanProgress = 0f;
+    private Collider2D spongeCollider;
+
+    void Start()
+    {
+        spongeCollider = sponge.GetComponent<Collider2D>();
+    }
 
     void Update()
     {
@@ -61,14 +65,36 @@ public class CatWashMinigame : MonoBehaviour
     {
         if (!holdingSponge) return;
 
-        if (sponge.GetComponent<Collider2D>().IsTouching(catCollider))
-        {
-            cleanProgress += cleanRate * Time.deltaTime;
+        bool touchingCat = spongeCollider.IsTouching(catCollider);
 
-            if (cleanProgress >= cleanRequired)
+        // Bubble FX only when rubbing the cat
+        if (touchingCat)
+        {
+            if (!bubbleFX.isPlaying)
+                bubbleFX.Play();
+
+            cleanProgress += cleanRate * Time.deltaTime;
+        }
+        else
+        {
+            if (bubbleFX.isPlaying)
+                bubbleFX.Stop();
+        }
+
+        // Dirty spot cleaning
+        foreach (var spot in dirtySpots)
+        {
+            if (!spot.cleaned && spongeCollider.IsTouching(spot.GetComponent<Collider2D>()))
             {
-                onWin?.Invoke();
+                spot.Clean();
+                cleanProgress += spot.cleanAmount;
             }
+        }
+
+        // Win check
+        if (cleanProgress >= cleanRequired)
+        {
+            onWin?.Invoke();
         }
     }
 }
