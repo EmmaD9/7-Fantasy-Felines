@@ -28,7 +28,6 @@ public class FoodManager : MonoBehaviour
         {
             isEmpty = true;
         }
-        Debug.Log(foodLeft);
     }
 
 

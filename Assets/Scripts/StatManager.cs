@@ -59,7 +59,7 @@ public class StatManager : MonoBehaviour
         timeRemaining = statDecreaseTimer;
         timerIsRunning = true;
         OnFeedClick();
-        OnExerciseClick();
+        //OnExerciseClick();
         OnWashClick();
         UpdateCat();
     }
