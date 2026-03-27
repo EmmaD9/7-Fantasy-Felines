@@ -38,6 +38,7 @@ public class FoodScoreTracker : MonoBehaviour
             winTimer += Time.deltaTime;
             if(winTimer >= winTime)
             {
+                StatManager.foodStat++;
                 SceneManager.LoadScene("UI Testing");
             }
         }

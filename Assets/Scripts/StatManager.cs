@@ -14,9 +14,9 @@ public class StatManager : MonoBehaviour
     public Image washImage;
     public Image exerciseImage;
 
-    private int foodStat;
-    private int washStat;
-    private int exerciseStat;
+    public static int foodStat = -1;
+    public static int washStat = -1;
+    public static int exerciseStat = -1;
 
     public int foodStatMax;
     public int washStatMax;
@@ -39,19 +39,22 @@ public class StatManager : MonoBehaviour
 
     void Start()
     {
-        // Initialize stats to max
-        foodStat = foodStatMax;
-        washStat = washStatMax;
-        exerciseStat = exerciseStatMax;
+        // Initialize stats to max unless reloaded
+        if(foodStat == -1)
+        {
+            foodStat = foodStatMax;
+            washStat = washStatMax;
+            exerciseStat = exerciseStatMax;
 
-        // Initialize stat colors to green
-        foodImage.color = Color.green;
-        washImage.color = Color.green;
-        exerciseImage.color = Color.green;
+            // Initialize stat colors to green
+            foodImage.color = Color.green;
+            washImage.color = Color.green;
+            exerciseImage.color = Color.green;
 
-        foodState = CatState.Happy;
-        washState = CatState.Happy;
-        exerciseState = CatState.Happy;
+            foodState = CatState.Happy;
+            washState = CatState.Happy;
+            exerciseState = CatState.Happy;
+        }        
 
         timeRemaining = statDecreaseTimer;
         timerIsRunning = true;
