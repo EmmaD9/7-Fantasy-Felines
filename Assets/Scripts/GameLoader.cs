@@ -12,4 +12,9 @@ public class GameLoader : MonoBehaviour
     {
         SceneManager.LoadScene("WashGame");
     }
+
+    public void LoadHome()
+    {
+        SceneManager.LoadScene("UI Testing");
+    }
 }
